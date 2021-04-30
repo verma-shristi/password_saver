@@ -1,0 +1,32 @@
+<%- include("includes/header") %>
+<form action="/update" method="post">
+       
+    <div class="container">
+        
+        <h5 class="formhead">
+            update your password here
+        </h5>
+        <% if(message!=""){%>
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><%= message %></strong>
+              </div>
+        <%}%>
+       <input type="hidden" name="_id" value="<%= records._id %>">
+        
+        <div class="mb-3">
+            
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email" value="<%= records.email %>">
+        </div>
+        <div class="mb-3">
+           
+            <input type="text" class="form-control" id="DomainFormControlInput1" placeholder="domain" name="domain" value="<%= records.domain %>">
+        </div>
+        <div class="mb-3">
+            
+            <input type="text" class="form-control" id="passwordFormControlInput1" placeholder="password" name="password" value="<%= records.password %>">
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Update</button>
+    </div>
+</form>
+<%- include("includes/footer") %>

@@ -1,0 +1,34 @@
+<%- include("includes/header") %>
+
+
+<form action="/login" method="post">
+       
+    <div class="container">
+        
+           
+        <h5 class="formhead">
+            Login Yourself
+        </h5>
+        <% if(message!=""){%>
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong><%= message %></strong>
+              </div>
+        <%}%>
+        
+        <div class="mb-3">
+            
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+        </div>
+        <div class="mb-3">
+            
+            <input type="password" class="form-control" id="passwordFormControlInput1" placeholder="password" name="password">
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LeuzU0aAAAAAJ7GxqVx7RT9TS6jnhEmsZ6tJcnV"></div><br>
+        
+        <button type="submit" class="btn btn-outline-secondary">Login</button>
+        <p>New User? <a href="/register">Register Here</a></p>
+        <a href="/main">Home</a>
+    </div>
+</form>
+<%- include("includes/footer") %>

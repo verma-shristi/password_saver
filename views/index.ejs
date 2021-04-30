@@ -1,0 +1,73 @@
+<%- include("includes/header") %>
+
+    
+    <form action="/" method="post">
+       
+        <div class="container">
+            
+                <h5 class="formhead">
+                    Save your password here
+                </h5>
+                <% if(message!=""){%>
+                    <div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong><%= message %></strong>
+                      </div>
+                <%}%>
+                <% if(mess!=""){%>
+                  <div class="alert alert-success alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong><%= mess %></strong>
+                    </div>
+              <%}%>
+            
+            <div class="mb-3">
+                
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+            </div>
+            <div class="mb-3">
+               
+                <input type="text" class="form-control" id="DomainFormControlInput1" placeholder="domain" name="domain">
+            </div>
+            <div class="mb-3">
+                
+                <input type="password" class="form-control" id="passwordFormControlInput1" placeholder="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">Add</button>
+           
+        </div>
+    </form>
+     
+          <table class="table">
+            
+            <thead>
+                <tr>
+                    <th class="tablehead" colspan="5">Your passwords</th>
+                </tr>
+              <tr>
+                <th scope="col">S.no.</th>
+                <th scope="col">Email</th>
+                <th scope="col">Domain</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i = 0;i<records.length;i++){ %>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%= records[i].email %></td>
+                <td><%= records[i].domain %></td>
+                <td><%= records[i].password %></td>
+                <td><a href="/edit/<%= records[i]._id %>"><i class="fa fa-edit"></i></a><a href="/delete/<%= records[i]._id %>"><i class="fa fa-trash"></i></a></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+          <a class="logout"href="/logout">Logout</a>
+    </div>
+    
+
+    
+    
+<%- include("includes/footer") %>
